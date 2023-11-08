@@ -1,4 +1,4 @@
-package com.kaiky.taticstftools;
+package com.kaiky.taticstftools.a_exerciciosBase;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Exercicio {   
+public class a_ExerciciosBase {   
     @Getter @Setter
     private String name;
 
@@ -60,9 +60,5 @@ public class Exercicio {
 
         System.out.println("A soma dos valores inseridos é: " + sum);
         System.out.println("A media dos valores inseridos é: " + media);
-    }
-
-    public void Exercicio4(){
-
     }
 }
