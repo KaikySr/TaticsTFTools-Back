@@ -1,7 +1,6 @@
 package com.kaiky.taticstftools.controller;
 
 import java.util.List;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,13 +30,7 @@ public class UserController {
 
     @GetMapping("/{name}")
     public List<UserModel> getUserByName(@PathVariable String name) {
-        List<UserModel> listRes = userService.findByName(name);
-        return listRes;
-    }
-
-    @GetMapping("/{age}/{name}")
-    public List<UserModel> getUserByAgeAndName(@PathVariable short age, @PathVariable String name) {
-        List<UserModel> listRes = userService.findByAgeAndName(age, name);
+        List<UserModel> listRes = userService.findByUsername(name);
         return listRes;
     }
 
@@ -48,7 +41,7 @@ public class UserController {
 
     @PutMapping("/{id}")
     public void putUser(@RequestBody UserModel newUser, @PathVariable String id) {
-        userService.save((String) id, (String) newUser.getName(), (short) newUser.getAge());
+        userService.save((String) id, (String) newUser.getUsername(), newUser.getPassword(), newUser.getEmail());
     }
 
     @DeleteMapping("/{id}")

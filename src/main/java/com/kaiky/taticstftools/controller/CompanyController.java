@@ -31,10 +31,10 @@ public class CompanyController {
 
     @PostMapping("")
     public void newUser(@RequestBody CompanyUserDTO newCompanyUserDTO) {
-        CompanyModel newCompanyModel = new CompanyModel(newCompanyUserDTO.getCompany().getName());
+        CompanyModel newCompanyModel = new CompanyModel(newCompanyUserDTO.getCompany().getUsername());
 
         UserModel userResp = userService
-                .save(new UserModel(newCompanyUserDTO.getUser().getName(), newCompanyUserDTO.getUser().getAge()));
+                .save(new UserModel(newCompanyUserDTO.getUser().getUsername(), newCompanyUserDTO.getUser().getPassword(), newCompanyUserDTO.getUser().getEmail()));
         newCompanyModel.setIdUser(new UserModel(userResp.getId()));
         companyService.save(newCompanyModel);
     }
@@ -44,11 +44,11 @@ public class CompanyController {
         List<UserModel> idsUsers = new ArrayList<UserModel>();
 
         for (UserModel test : newCompanyUserDTO.getUserList()) {
-            UserModel userResp = userService.save(new UserModel(test.getName(), test.getAge()));
+            UserModel userResp = userService.save(new UserModel(test.getUsername(), test.getPassword(), test.getEmail()));
             idsUsers.add(new UserModel(userResp.getId()));
         }
 
-        CompanyModel newCompanyModel = new CompanyModel(newCompanyUserDTO.getCompany().getName());
+        CompanyModel newCompanyModel = new CompanyModel(newCompanyUserDTO.getCompany().getUsername());
 
         newCompanyModel.setListUser(idsUsers);
         companyService.save(newCompanyModel);

@@ -19,20 +19,16 @@ public class UserService {
         return this.userRepository.save(userModel);
     }
 
-    public void save(String id, String name, short age) {
-        this.userRepository.save(new UserModel(id, name, age));
+    public void save(String id, String username, String password, String email) {
+        this.userRepository.save(new UserModel(id, username, password, email));
     }
 
     public List<UserModel> findAll() {
         return (List<UserModel>) this.userRepository.findAll();
     }
 
-    public List<UserModel> findByName(String name) {
-        return (List<UserModel>) this.userRepository.findByName(name);
-    }
-
-    public List<UserModel> findByAgeAndName(short age, String name) {
-        return (List<UserModel>) this.userRepository.findByAgeAndName(age, name);
+    public List<UserModel> findByUsername(String username) {
+        return (List<UserModel>) this.userRepository.findByName(username);
     }
 
     public void delete(String id) {

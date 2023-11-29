@@ -12,19 +12,19 @@ import lombok.Data;
 public class CompanyModel {
     @Id
     private String id;
-    private String name;
+    private String username;
     @DBRef
     private UserModel idUser;
     @DBRef
     private List<UserModel> listUser;
 
-    public CompanyModel(String id, String name) {
+    public CompanyModel(String id, String username) {
         this.id = id;
-        this.name = name;
+        this.username = username;
     }
 
     public CompanyModel(String name) {
-        this.name = name;
+        this.username = username;
     }
 
     public CompanyModel() {
