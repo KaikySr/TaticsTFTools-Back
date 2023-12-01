@@ -28,9 +28,9 @@ public class UserController {
         return listRes;
     }
 
-    @GetMapping("/{name}")
-    public List<UserModel> getUserByName(@PathVariable String name) {
-        List<UserModel> listRes = userService.findByUsername(name);
+    @GetMapping("/{username}")
+    public List<UserModel> getUserByUsername(@PathVariable String username) {
+        List<UserModel> listRes = userService.findByUsername(username);
         return listRes;
     }
 

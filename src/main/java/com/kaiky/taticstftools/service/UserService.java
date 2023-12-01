@@ -28,7 +28,7 @@ public class UserService {
     }
 
     public List<UserModel> findByUsername(String username) {
-        return (List<UserModel>) this.userRepository.findByName(username);
+        return (List<UserModel>) this.userRepository.findByUsername(username);
     }
 
     public void delete(String id) {
